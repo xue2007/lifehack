@@ -231,8 +231,11 @@ function GamePartStack(props) {
       <Stack.Screen
         name="GamePart"
         component={GamePart}
-        option={{
-          headerTransparent: true,
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="GamePart" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
@@ -242,7 +245,7 @@ function GamePartStack(props) {
 
 function WrongQuizStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="screen">
+    <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen
         name="WrongQuiz"
         component={WrongQuiz}
@@ -261,8 +264,11 @@ function EndQuizStack(props) {
       <Stack.Screen
         name="EndQuiz"
         component={EndQuiz}
-        option={{
-          headerTransparent: true,
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="EndQuiz" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
@@ -276,8 +282,11 @@ function QuizStack(props) {
       <Stack.Screen
         name="Quiz"
         component={Quiz}
-        option={{
-          headerTransparent: true,
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="Quiz" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
@@ -288,10 +297,17 @@ function VicinityStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
-        name="Vicinity Sensor"
+        name="Vicinity"
         component={VicinitySensor}
-        option={{
-          headerTransparent: true,
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Vicinity Sensor"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
       <Stack.Screen name="App" component={AppStack} />

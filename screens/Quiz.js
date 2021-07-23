@@ -13,7 +13,7 @@ const thumbMeasure = (width - 48 - 32) / 3;
 class Quiz extends React.Component {
   render() {
     return (
-      
+        
           
           <Block flex>
           <Block center>

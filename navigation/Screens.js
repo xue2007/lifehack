@@ -172,7 +172,7 @@ function ProfileStack(props) {
   );
 }
 
-function HomeStack(props) {
+export default function HomeStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
@@ -212,7 +212,7 @@ function HomeStack(props) {
   );
 }
 
-export default function OnboardingStack(props) {
+ function OnboardingStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen

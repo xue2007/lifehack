@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import SoundPlayer from "react-native-sound-player";
 import {
   ScrollView,
   StyleSheet,
@@ -7,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   ImageBackground,
   Dimensions,
+  Button,
 } from "react-native";
 //galio
 import { Block, Text, theme } from "galio-framework";
@@ -39,17 +41,6 @@ class ArticleDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = { articleData: [] };
-  }
-  componentDidMount() {
-    axios
-      .get("https://db52ef3b4e70.ngrok.io/lifehack/v1/article/getAll")
-      .then((res) => {
-        this.setState({ articleData: res.data });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    this.setState({ itemParam: this.props });
   }
 
   renderProduct = (item, index) => {
@@ -99,7 +90,7 @@ class ArticleDetails extends React.Component {
     return (
       <Block flex style={styles.group}>
         <Text bold size={30} style={styles.title}>
-        {articles[0].title}
+          {articles[0].title}
         </Text>
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>

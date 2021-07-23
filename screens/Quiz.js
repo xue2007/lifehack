@@ -16,7 +16,11 @@ class Quiz extends React.Component {
         
         
           
-          <Block middle>
+          <Block middle style={{
+            flex: 1, 
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
               <Block row style={{ marginTop: theme.SIZES.BASE }}>
                   <Button style={{ ...styles.socialButtons, marginRight: 30 }}>
                     <Block row>

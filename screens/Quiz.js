@@ -14,14 +14,41 @@ class Quiz extends React.Component {
   render() {
     return (
         
+        
           
-          <Block flex>
-          <Block center>
+          <Block middle>
+              <Block row style={{ marginTop: theme.SIZES.BASE }}>
+                  <Button style={{ ...styles.socialButtons, marginRight: 30 }}>
+                    <Block row>
+                      {/* <Icon
+                        name="logo-github"
+                        family="Ionicon"
+                        size={14}
+                        color={"black"}
+                        style={{ marginTop: 2, marginRight: 5 }}
+                      /> */}
+                      <Text style={styles.socialTextButtons}>Yes</Text>
+                    </Block>
+                  </Button>
+                  <Button style={styles.socialButtons}>
+                    <Block row>
+                      {/* <Icon
+                        name="logo-google"
+                        family="Ionicon"
+                        size={14}
+                        color={"black"}
+                        style={{ marginTop: 2, marginRight: 5 }}
+                      /> */}
+                      <Text style={styles.socialTextButtons}>No</Text>
+                    </Block>
+                  </Button>
+                </Block>
+          <Block middle>
             <Button color="info" style={styles.button}>
               INFO
             </Button>
           </Block>
-          <Block center>
+          <Block middle>
             <Button color="info" style={styles.button}>
               INFO
             </Button>

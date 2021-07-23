@@ -21,10 +21,13 @@ class Vicinity extends React.Component {
   renderRed = () => {
     return (
       <Block flex center style={styles.home} backgroundColor="red">
-        <Text bold size={50}>
-          {randomNumber} Number of people
+        <Text center bold size={50}>
+          Number of people around you: 
         </Text>
-        <Text size={50} color="white" style={styles.text_style}>
+        <Text center bold size={50}>
+        {randomNumber}
+        </Text>
+        <Text size={70} color="white" style={styles.text_style}>
           High Risk
         </Text>
       </Block>
@@ -33,10 +36,13 @@ class Vicinity extends React.Component {
   renderGreen = () => {
     return (
       <Block flex center style={styles.home} backgroundColor="green">
-        <Text bold size={50}>
-          {randomNumber} Number of people
+        <Text center bold size={50}>
+          Number of people around you:
         </Text>
-        <Text size={50} color="white" style={styles.text_style}>
+        <Text center bold size={50}>
+        {randomNumber}
+        </Text>
+        <Text size={70} color="white" style={styles.text_style}>
           Safe
         </Text>
       </Block>
@@ -45,10 +51,13 @@ class Vicinity extends React.Component {
   renderOrange = () => {
     return (
       <Block flex center style={styles.home} backgroundColor="orange">
-        <Text bold size={50}>
-          {randomNumber} Number of people
+        <Text center bold size={50}>
+          Number of people around you: 
         </Text>
-        <Text size={50} color="white" style={styles.text_style}>
+        <Text center bold size={50}>
+        {randomNumber}
+        </Text>
+        <Text size={70} color="white" style={styles.text_style}>
           At Risk
         </Text>
       </Block>
@@ -68,6 +77,7 @@ class Vicinity extends React.Component {
 
 const styles = StyleSheet.create({
   home: {
+    paddingTop: 50,
     width: width,
   },
   container: {

@@ -16,6 +16,8 @@ import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
 import Game from "../screens/Game";
+import GamePart from "../screens/GamePart";
+
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -43,7 +45,7 @@ function ElementsStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
       />
-      <Stack.Screen
+            <Stack.Screen
         name="Pro"
         component={Pro}
         options={{
@@ -77,7 +79,7 @@ function ArticlesStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
       />
-      <Stack.Screen
+            <Stack.Screen
         name="Pro"
         component={Pro}
         options={{
@@ -98,39 +100,6 @@ function ArticlesStack(props) {
   );
 }
 
-function GameStack(props) {
-  return (
-    <Stack.Navigator mode="card" headerMode="screen">
-      <Stack.Screen
-        name="Game"
-        component={Game}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Game" navigation={navigation} scene={scene} />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
 function ProfileStack(props) {
   return (
     <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
@@ -151,7 +120,7 @@ function ProfileStack(props) {
           headerTransparent: true
         }}
       />
-      <Stack.Screen
+            <Stack.Screen
         name="Pro"
         component={Pro}
         options={{
@@ -172,7 +141,7 @@ function ProfileStack(props) {
   );
 }
 
-export default function HomeStack(props) {
+function HomeStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
@@ -212,12 +181,42 @@ export default function HomeStack(props) {
   );
 }
 
- function OnboardingStack(props) {
+export default function OnboardingStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen
         name="Onboarding"
         component={Onboarding}
+        option={{
+          headerTransparent: true
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+
+function GameStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="Game"
+        component={Game}
+        option={{
+          headerTransparent: true
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+
+function GamePartStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="GamePart"
+        component={GamePart}
         option={{
           headerTransparent: true
         }}
@@ -264,6 +263,8 @@ function AppStack(props) {
       <Drawer.Screen name="Elements" component={ElementsStack} />
       <Drawer.Screen name="Articles" component={ArticlesStack} />
       <Drawer.Screen name="Game" component={GameStack} />
+      <Drawer.Screen name="GamePart" component={GamePartStack} />
+
     </Drawer.Navigator>
   );
 }

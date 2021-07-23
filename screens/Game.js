@@ -53,7 +53,7 @@ export default class Game extends React.Component {
                 shadowless
                 style={styles.button}
                 color={argonTheme.COLORS.INFO}
-                onPress={() => Linking.openURL('https://www.creative-tim.com/product/argon-pro-react-native').catch((err) => console.error('An error occurred', err))}>
+                onPress={() => navigation.navigate("GamePart", {  })}>
                 <Text bold color={theme.COLORS.WHITE}>Start</Text>
               </Button>
             </Block>

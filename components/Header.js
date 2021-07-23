@@ -105,20 +105,20 @@ class Header extends React.Component {
         break;
     }
   }
-  renderSearch = () => {
-    const { navigation } = this.props;
-    return (
-      <Input
-        right
-        color="black"
-        style={styles.search}
-        placeholder="What are you looking for?"
-        placeholderTextColor={'#8898AA'}
-        onFocus={() => navigation.navigate('Pro')}
-        iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
-      />
-    );
-  }
+  // renderSearch = () => {
+  //   const { navigation } = this.props;
+  //   return (
+  //     <Input
+  //       right
+  //       color="black"
+  //       style={styles.search}
+  //       placeholder="What are you looking for?"
+  //       placeholderTextColor={'#8898AA'}
+  //       onFocus={() => navigation.navigate('Pro')}
+  //       iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
+  //     />
+  //   );
+  // }
   renderOptions = () => {
     const { navigation, optionLeft, optionRight } = this.props;
 
@@ -157,7 +157,7 @@ class Header extends React.Component {
     if (search || tabs || options) {
       return (
         <Block center>
-          {search ? this.renderSearch() : null}
+          {/* {search ? this.renderSearch() : null} */}
           {options ? this.renderOptions() : null}
           {tabs ? this.renderTabs() : null}
         </Block>

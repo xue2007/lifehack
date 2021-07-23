@@ -2,15 +2,36 @@ import React from "react";
 import { withNavigation } from "@react-navigation/compat";
 import PropTypes from "prop-types";
 import {
+  Linking,
   StyleSheet,
   Dimensions,
   Image,
+  Alert,
   TouchableWithoutFeedback,
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
 import { argonTheme } from "../constants";
 
+const createTwoButtonAlert = () =>
+  Alert.alert(
+    "Contact Us",
+    "Are you want that you want to call Healthcare hotline?",
+    [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      {
+        text: "Yes",
+        onPress: () => {
+          console.log("Yes Pressed");
+          Linking.openURL('tel:995');
+        },
+      },
+    ]
+  );
 class Card extends React.Component {
   render() {
     const { navigation, item, horizontal, full, style, ctaColor, imageStyle } =
@@ -26,34 +47,61 @@ class Card extends React.Component {
       horizontal ? styles.horizontalStyles : styles.verticalStyles,
       styles.shadow,
     ];
-    return (
-      <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate(item.title)}
-        >
-          <Block flex style={imgContainer}>
-            <Image source={{ uri: item.image }} style={imageStyles} />
-          </Block>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate(item.title)}
-        >
-          <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle}>
-              {item.display}
-            </Text>
-            <Text
-              size={12}
-              muted={!ctaColor}
-              color={ctaColor || argonTheme.COLORS.ACTIVE}
-              bold
-            >
-              {item.cta}
-            </Text>
-          </Block>
-        </TouchableWithoutFeedback>
-      </Block>
-    );
+    if (item.title === "ContactUs") {
+      return (
+        <Block row={horizontal} card flex style={cardContainer}>
+          <TouchableWithoutFeedback onPress={createTwoButtonAlert}>
+            <Block flex style={imgContainer}>
+              <Image source={{ uri: item.image }} style={imageStyles} />
+            </Block>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={createTwoButtonAlert}>
+            <Block flex space="between" style={styles.cardDescription}>
+              <Text size={14} style={styles.cardTitle}>
+                {item.display}
+              </Text>
+              <Text
+                size={12}
+                muted={!ctaColor}
+                color={ctaColor || argonTheme.COLORS.ACTIVE}
+                bold
+              >
+                {item.cta}
+              </Text>
+            </Block>
+          </TouchableWithoutFeedback>
+        </Block>
+      );
+    } else {
+      return (
+        <Block row={horizontal} card flex style={cardContainer}>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate(item.title)}
+          >
+            <Block flex style={imgContainer}>
+              <Image source={{ uri: item.image }} style={imageStyles} />
+            </Block>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate(item.title)}
+          >
+            <Block flex space="between" style={styles.cardDescription}>
+              <Text size={14} style={styles.cardTitle}>
+                {item.display}
+              </Text>
+              <Text
+                size={12}
+                muted={!ctaColor}
+                color={ctaColor || argonTheme.COLORS.ACTIVE}
+                bold
+              >
+                {item.cta}
+              </Text>
+            </Block>
+          </TouchableWithoutFeedback>
+        </Block>
+      );
+    }
   }
 }
 

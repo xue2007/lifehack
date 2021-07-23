@@ -144,29 +144,7 @@ class Card extends React.Component {
             </TouchableWithoutFeedback>
           </Block>
         );
-      } else {
-        //Article Details
-        return (
-          <Block row={horizontal} card flex style={cardContainer}>
-            <Block flex style={imgContainer}>
-              <Image source={{ uri: item.image }} style={imageStyles} />
-            </Block>
-            <Block flex space="between" style={styles.cardDescription}>
-              <Text size={14} style={styles.cardTitle}>
-                {item.content}
-              </Text>
-              <Text
-                size={12}
-                muted={!ctaColor}
-                color={ctaColor || argonTheme.COLORS.ACTIVE}
-                bold
-              >
-                {item.cta}
-              </Text>
-            </Block>
-          </Block>
-        );
-      }
+      } 
     }
   }
 }

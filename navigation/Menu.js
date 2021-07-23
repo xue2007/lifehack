@@ -17,7 +17,7 @@ function CustomDrawerContent({
     "Home",
     "Profile",
     "Account",
-    "Elements",
+    // "Elements",
     "Articles",
     "Game",
   ];
@@ -53,7 +53,7 @@ function CustomDrawerContent({
                 borderWidth: StyleSheet.hairlineWidth,
               }}
             />
-            <Text color="#8898AA" style={{ marginTop: 16, marginLeft: 8 }}>
+            <Text color="#8898AA" style={{ marginTop: 16, marginLeft: 8 }} >
               External Links
             </Text>
           </Block>

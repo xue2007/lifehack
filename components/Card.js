@@ -16,7 +16,7 @@ import { argonTheme } from "../constants";
 const createTwoButtonAlert = () =>
   Alert.alert(
     "Contact Us",
-    "Are you want that you want to call Healthcare hotline?",
+    "Are you want that you want to call the Healthcare hotline?",
     [
       {
         text: "Cancel",

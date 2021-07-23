@@ -14,6 +14,7 @@ import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
+import ArticleDetails from "../screens/ArticleDetails";
 import Articles from "../screens/Articles";
 import Game from "../screens/Game";
 import GamePart from "../screens/GamePart";
@@ -55,6 +56,40 @@ function ElementsStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Elements" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
+      <Stack.Screen
+        name="Pro"
+        component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function ArticleDetailsStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="screen">
+      <Stack.Screen
+        name="ArticleDetails"
+        component={ArticleDetails}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="Article Details" navigation={navigation} scene={scene} />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
@@ -346,6 +381,7 @@ function AppStack(props) {
       }}
       initialRouteName="Home"
     >
+      <Drawer.Screen name="ArticleDetails" component={ArticleDetailsStack} />
       <Drawer.Screen name="Articles" component={ArticlesStack} />
       <Drawer.Screen name="Elements" component={ElementsStack} />
       <Drawer.Screen name="Game" component={GameStack} />

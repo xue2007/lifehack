@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, Image, Linking } from "react-native";
+import { ScrollView, StyleSheet, Image } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
 import Images from "../constants/Images";

@@ -40,7 +40,7 @@ class Card extends React.Component {
         >
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>
-              {item.title}
+              {item.display}
             </Text>
             <Text
               size={12}
@@ -59,6 +59,7 @@ class Card extends React.Component {
 
 Card.propTypes = {
   item: PropTypes.object,
+  page: PropTypes.string,
   horizontal: PropTypes.bool,
   full: PropTypes.bool,
   ctaColor: PropTypes.string,

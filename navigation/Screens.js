@@ -18,6 +18,7 @@ import Articles from "../screens/Articles";
 import Game from "../screens/Game";
 import GamePart from "../screens/GamePart";
 import Quiz from "../screens/Quiz";
+import VicinitySensor from "../screens/Vicinity";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -239,6 +240,20 @@ function QuizStack(props) {
     </Stack.Navigator>
   );
 }
+function VicinityStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="Quiz"
+        component={VicinitySensor}
+        option={{
+          headerTransparent: true,
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
 
 function AppStack(props) {
   return (
@@ -280,6 +295,7 @@ function AppStack(props) {
       <Drawer.Screen name="Quiz" component={QuizStack} />
       <Drawer.Screen name="Account" component={Register} />
       <Drawer.Screen name="Register" component={Register} />
+      <Drawer.Screen name="VicinitySensor" component={VicinityStack} />
     </Drawer.Navigator>
   );
 }

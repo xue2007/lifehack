@@ -27,7 +27,7 @@ const createTwoButtonAlert = () =>
         text: "Yes",
         onPress: () => {
           console.log("Yes Pressed");
-          Linking.openURL('tel:995');
+          Linking.openURL("tel:995");
         },
       },
     ]

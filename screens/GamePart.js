@@ -78,8 +78,8 @@ class GamePart extends React.Component {
             <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
               <Text
                 center
-                size={16}
-                color={theme.COLORS.MUTED}
+                size={25}
+                
                 style={styles.productPrice}
               >
                 {item.price}
@@ -89,8 +89,8 @@ class GamePart extends React.Component {
               </Text>
               <Text
                 center
-                size={16}
-                color={theme.COLORS.MUTED}
+                size={25}
+                
                 style={styles.productDescription}
               >
                 {item.description}
@@ -115,8 +115,8 @@ class GamePart extends React.Component {
             <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
               <Text
                 center
-                size={16}
-                color={theme.COLORS.MUTED}
+                size={25}
+                
                 style={styles.productPrice}
               >
                 {item.price}
@@ -126,8 +126,8 @@ class GamePart extends React.Component {
               </Text>
               <Text
                 center
-                size={16}
-                color={theme.COLORS.MUTED}
+                size={25}
+                
                 style={styles.productDescription}
               >
                 {item.description}
@@ -160,10 +160,10 @@ class GamePart extends React.Component {
                 }}
               >
                 <Block style={styles.categoryTitle}>
-                  <Text size={25} bold color={theme.COLORS.WHITE}>
+                  <Text size={34} bold color={theme.COLORS.WHITE}>
                     Random Quiz
                   </Text>
-                  <Text size={20} color={theme.COLORS.WHITE}>
+                  <Text size={25} color={theme.COLORS.WHITE}>
                     150 points
                   </Text>
                 </Block>

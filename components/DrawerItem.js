@@ -64,10 +64,10 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
-      case "Getting Started":
+      case "Trace Together":
         return (
           <Icon
-            name="spaceship"
+            name=""
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : "rgba(0,0,0,0.5)"}
@@ -92,9 +92,9 @@ class DrawerItem extends React.Component {
       <TouchableOpacity
         style={{ height: 60 }}
         onPress={() =>
-          title == "Getting Started"
+          title == "Trace Together"
             ? Linking.openURL(
-                "https://demos.creative-tim.com/argon-pro-react-native/docs/"
+                "https://www.tracetogether.gov.sg/"
               ).catch((err) => console.error("An error occurred", err))
             : navigation.navigate(title)
         }

@@ -39,7 +39,17 @@ const Tab = createBottomTabNavigator();
 
 function ElementsStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="screen">
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: "#2B6D6A",
+        height: 10,
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontSize: 10,
+        textAlign: "center",
+      },
+    }}>
       <Stack.Screen
         name="Elements"
         component={Elements}

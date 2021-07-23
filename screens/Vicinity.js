@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {
   ScrollView,
   StyleSheet,
@@ -7,19 +6,21 @@ import {
   TouchableWithoutFeedback,
   ImageBackground,
   Dimensions,
+  TouchableOpacity,
+  View,
 } from "react-native";
 //galio
-import { Block, Text, theme } from "galio-framework";
+import { Block, Text, Button as GaButton, theme } from "galio-framework";
 //argon
-import { articles, Images, argonTheme } from "../constants/";
-import { Card } from "../components/";
+import { articles, tabs, Images, argonTheme } from "../constants/";
 
 const { width } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
 const cardWidth = width - theme.SIZES.BASE * 2;
+var randomNumber = Math.floor(Math.random() * 30) + 1;
 
-class VicinitySensor extends React.Component {
+class Vicinity extends React.Component {
   renderProduct = (item, index) => {
     const { navigation } = this.props;
 
@@ -27,7 +28,7 @@ class VicinitySensor extends React.Component {
       <TouchableWithoutFeedback
         style={{ zIndex: 3 }}
         key={`product-${item.title}`}
-        onPress={() => navigation.navigate("Pro", { product: item })}
+        onPress={() => navigation.navigate("Quiz", { product: item })}
       >
         <Block center style={styles.productItem}>
           <Image
@@ -60,157 +61,69 @@ class VicinitySensor extends React.Component {
       </TouchableWithoutFeedback>
     );
   };
-
-  renderCards = () => {
-    console.log("State: ", this.state.articleData);
+  renderRed = () => {
     return (
-      <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>
-          Cards
+      <View style={{ flex: 1, backgroundColor: "##FF0000" }}>
+        <Text bold size={50}>
+          Vicinity Sensor
         </Text>
-        <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[0]} horizontal />
-            <Block flex row>
-              <Card
-                item={articles[1]}
-                style={{ marginRight: theme.SIZES.BASE }}
-              />
-              <Card item={articles[2]} />
-            </Block>
-            <Card item={articles[4]} full />
-          </Block>
-          <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
-            <ScrollView
-              horizontal={true}
-              pagingEnabled={true}
-              decelerationRate={0}
-              scrollEventThrottle={16}
-              snapToAlignment="center"
-              showsHorizontalScrollIndicator={false}
-              snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
-              contentContainerStyle={{
-                paddingHorizontal: theme.SIZES.BASE / 2,
-              }}
-            >
-              {categories &&
-                categories.map((item, index) =>
-                  this.renderProduct(item, index)
-                )}
-            </ScrollView>
-          </Block>
-        </Block>
+        <Text size={20} color="white">
+          High Risks
+        </Text>
+      </View>
+    );
+  };
+  renderGreen = () => {
+    return (
+      <Block flex center style={styles.home} backgroundColor="green">
+        <Text bold size={50}>
+          Vicinity Sensor
+        </Text>
+        <Text bold size={50}>
+          {randomNumber} Number of people
+        </Text>
+        <Text size={20} color="white">
+          Safe
+        </Text>
       </Block>
     );
   };
-
-  renderAlbum = () => {
-    const { navigation } = this.props;
-
+  renderOrange = () => {
     return (
-      <Block
-        flex
-        style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}
-      >
-        <Text bold size={16} style={styles.title}>
-          Album
+      <Block flex center style={styles.home} backgroundColor="orange">
+        <Text bold size={50}>
+          Vicinity Sensor
         </Text>
-        <Block style={{ marginHorizontal: theme.SIZES.BASE * 2 }}>
-          <Block flex right>
-            <Text
-              size={12}
-              color={theme.COLORS.PRIMARY}
-              onPress={() => navigation.navigate("Home")}
-            >
-              View All
-            </Text>
-          </Block>
-          <Block
-            row
-            space="between"
-            style={{ marginTop: theme.SIZES.BASE, flexWrap: "wrap" }}
-          >
-            {Images.Viewed.map((img, index) => (
-              <Block key={`viewed-${img}`} style={styles.shadow}>
-                <Image
-                  resizeMode="cover"
-                  source={{ uri: img }}
-                  style={styles.albumThumb}
-                />
-              </Block>
-            ))}
-          </Block>
-        </Block>
+        <Text bold size={50}>
+          {randomNumber} Number of people
+        </Text>
+        <Text size={20} color="white">
+          At Risk
+        </Text>
       </Block>
     );
   };
 
   render() {
-    return (
-      <Block flex center>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {this.renderCards()}
-          {/* {this.renderAlbum()} */}
-        </ScrollView>
-      </Block>
-    );
+    if (randomNumber < 5) {
+      return this.renderGreen();
+    } else if (randomNumber >= 5) {
+      return this.renderOrange();
+    } else {
+      return this.renderRed();
+    }
   }
 }
 
 const styles = StyleSheet.create({
-  title: {
-    paddingBottom: theme.SIZES.BASE,
-    paddingHorizontal: theme.SIZES.BASE * 2,
-    marginTop: 22,
-    color: argonTheme.COLORS.HEADER,
+  home: {
+    width: width,
   },
-  group: {
-    paddingTop: theme.SIZES.BASE,
-  },
-  albumThumb: {
-    borderRadius: 4,
-    marginVertical: 4,
-    alignSelf: "center",
-    width: thumbMeasure,
-    height: thumbMeasure,
-  },
-  category: {
-    backgroundColor: theme.COLORS.WHITE,
-    marginVertical: theme.SIZES.BASE / 2,
-    borderWidth: 0,
-  },
-  categoryTitle: {
-    height: "100%",
-    paddingHorizontal: theme.SIZES.BASE,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
     alignItems: "center",
-  },
-  imageBlock: {
-    overflow: "hidden",
-    borderRadius: 4,
-  },
-  productItem: {
-    width: cardWidth - theme.SIZES.BASE * 2,
-    marginHorizontal: theme.SIZES.BASE,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 7 },
-    shadowRadius: 10,
-    shadowOpacity: 0.2,
-  },
-  productImage: {
-    width: cardWidth - theme.SIZES.BASE,
-    height: cardWidth - theme.SIZES.BASE,
-    borderRadius: 3,
-  },
-  productPrice: {
-    paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE / 2,
-  },
-  productDescription: {
-    paddingTop: theme.SIZES.BASE,
-    // paddingBottom: theme.SIZES.BASE * 2,
   },
 });
 
-export default VicinitySensor;
+export default Vicinity;

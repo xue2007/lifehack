@@ -280,7 +280,7 @@ function VicinityStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen
-        name="Quiz"
+        name="Vicinity"
         component={VicinitySensor}
         option={{
           headerTransparent: true,

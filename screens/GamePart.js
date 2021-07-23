@@ -44,12 +44,12 @@ const categories = [
   },
 ];
 const createTwoButtonAlert = () =>
-  Alert.alert("Maintainence Alert", "Please view vaccination quiz instead", [
-    {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel",
-    },
+  Alert.alert("Temporarily Unavailable", "Please view Vaccination Quiz instead.", [
+    // {
+    //   text: "Cancel",
+    //   onPress: () => console.log("Cancel Pressed"),
+    //   style: "cancel",
+    // },
     {
       text: "OK",
       onPress: () => {

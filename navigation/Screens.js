@@ -38,7 +38,17 @@ const Tab = createBottomTabNavigator();
 
 function ElementsStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="screen">
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: "#2B6D6A",
+        height: 10,
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontSize: 10,
+        textAlign: "center",
+      },
+    }}>
       <Stack.Screen
         name="Elements"
         component={Elements}
@@ -232,7 +242,7 @@ function GamePartStack(props) {
 
 function WrongQuizStack(props) {
   return (
-    <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="WrongQuiz"
         component={WrongQuiz}
@@ -247,7 +257,7 @@ function WrongQuizStack(props) {
 
 function EndQuizStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="EndQuiz"
         component={EndQuiz}
@@ -262,7 +272,7 @@ function EndQuizStack(props) {
 
 function QuizStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="Quiz"
         component={Quiz}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import SoundPlayer from "react-native-sound-player";
 import {
@@ -15,6 +15,9 @@ import { Block, Text, theme } from "galio-framework";
 //argon
 import { articles, Images, argonTheme } from "../constants/";
 import { CardDetails } from "../components/";
+
+import { Video } from "expo-av";
+import VideoPlayer from "expo-video-player";
 
 const { width } = Dimensions.get("screen");
 
@@ -95,6 +98,21 @@ class ArticleDetails extends React.Component {
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
             <CardDetails item={articles[0]} full />
+
+            <Text>
+              <VideoPlayer
+                videoProps={{
+                  shouldPlay: true,
+                  style: "width: 10px, height:10px",
+                  resizeMode: Video.RESIZE_MODE_CONTAIN,
+                  timeVisible: true,
+                  defaultControlsVisible: true,
+                  source: {
+                    uri: "https://www.mboxdrive.com/All%20you%20need%C2%A0to%20know%20about%20%20Covid-19%20clinical%20trials_%20Health%20Check%20Ep%2057.mp3",
+                  },
+                }}
+              />
+            </Text>
           </Block>
         </Block>
       </Block>

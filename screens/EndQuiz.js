@@ -1,150 +1,95 @@
-import React from "react";
-import {
-  Linking,
-  StyleSheet,
-  ImageBackground,
-  Dimensions,
-  StatusBar,
-  KeyboardAvoidingView,
-} from "react-native";
-import { Block, Checkbox, Text, theme } from "galio-framework";
+import React from 'react';
+import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Platform, Linking } from 'react-native';
+import { Block, Button, Text, theme } from 'galio-framework';
 
-import { Button, Icon, Input } from "../components";
-import { Images, argonTheme } from "../constants";
+const { height, width } = Dimensions.get('screen');
+import { Images, argonTheme } from '../constants/';
+import { HeaderHeight } from "../constants/utils";
 
-const { width, height } = Dimensions.get("screen");
-
-class EndQuiz extends React.Component {
+export default class EndQuiz extends React.Component {
   render() {
     const { navigation } = this.props;
+
     return (
-      <Block flex middle>
-        <StatusBar hidden />
-        <ImageBackground
-          source={Images.Onboarding}
-          style={{ width, height, zIndex: 1 }}
-        >
-          <Block safe flex middle>
-            <Block style={styles.registerContainer}>
-              <Block middle style={styles.socialConnect}>
-                <Text center size={36}>
-                  Wrong!
-                </Text>
-                <Text center size={30}>
-                Go through the following article to know more about Covid-19 vaccines!
-                </Text>
+      <Block flex style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <Block flex>
+          <ImageBackground
+            source={Images.Pro}
+            style={{ flex: 1, height: height, width, zIndex: 1 }}
+          />
+          <Block space="between" style={styles.padded}>
+            <Block>
+              <Block>
+                <Image source={Images.ArgonLogo}
+                  style={{ marginBottom: theme.SIZES.BASE * 1.5 }}/>
               </Block>
-              <Block flex>
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                    <Block
-                      middle
-                      style={{
-                        flex: 1,
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Block middle>
-                        <Button
-                          color="primary"
-                          style={{ backgroundColor: argonTheme.COLORS.ERROR }}
-                          onPress={() =>
-                            Linking.openURL(
-                              "https://appointment.vaccine.gov.sg/?gclid=Cj0KCQjw0emHBhC1ARIsAL1QGNf9X2bOrvmX6-_r0xTWWskxKb5PG_YnaQBno-TkWK5MKG18ps4nl-gaAs6aEALw_wcB"
-                            ).catch((err) =>
-                              console.error("An error occurred", err)
-                            )
-                          }
-                        >
-                          <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                            Covid-19 Vaccines
-                          </Text>
-                        </Button>
-                      </Block>
-                      <Block middle>
-                        <Text size={14} color={argonTheme.COLORS.BLACK}>
-                          or
-                        </Text>
-                      </Block>
-                      <Block middle>
-                        <Button
-                          color="primary"
-                          style={{ backgroundColor: argonTheme.COLORS.WHITE }}
-                          onPress={() => navigation.navigate("EndQuiz", {})}
-                        >
-                          <Text bold size={14} color={argonTheme.COLORS.BLACK}>
-                            Continue
-                          </Text>
-                        </Button>
-                      </Block>
-                    </Block>
-                  </KeyboardAvoidingView>
+              <Block >
+                <Block>
+                  <Text color="white" size={60}>Congratulations on completing the quiz!</Text>
+                </Block>
+                <Block>
+                  <Text color="white" size={60}>+100 Points</Text>
+                </Block>
+                <Block row>
+                  
                 </Block>
               </Block>
+              
+              <Block row style={{ marginTop: theme.SIZES.BASE * 1.5, marginBottom: theme.SIZES.BASE * 4 }}>
+                {/* <Image
+                  source={Images.iOSLogo}
+                  style={{ height: 38, width: 82, marginRight: theme.SIZES.BASE * 1.5 }} />
+                <Image
+                  source={Images.androidLogo}
+                  style={{ height: 38, width: 140 }} /> */}
+              </Block>
+              <Button
+                shadowless
+                style={styles.button}
+                color={argonTheme.COLORS.INFO}
+                onPress={() => navigation.navigate("GamePart", {  })}>
+                <Text bold color={theme.COLORS.WHITE}>End</Text>
+              </Button>
             </Block>
           </Block>
-        </ImageBackground>
+        </Block>
       </Block>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  registerContainer: {
-    width: width * 0.9,
-    height: height * 0.35,
-    backgroundColor: "#F4F5F7",
-    borderRadius: 10,
-    shadowColor: argonTheme.COLORS.BLACK,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 8,
-    shadowOpacity: 0.1,
-    elevation: 1,
-    overflow: "hidden",
+  container: {
+    backgroundColor: theme.COLORS.BLACK,
+    marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
   },
-  socialConnect: {
-    backgroundColor: argonTheme.COLORS.WHITE,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: "#8898AA",
+  padded: {
+    paddingHorizontal: theme.SIZES.BASE * 2,
+    zIndex: 3,
+    position: 'absolute',
+    bottom: Platform.OS === 'android' ? theme.SIZES.BASE * 2 : theme.SIZES.BASE * 3,
   },
-  socialButtons: {
-    width: 120,
-    height: 40,
-    backgroundColor: "#fff",
-    shadowColor: argonTheme.COLORS.BLACK,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 8,
-    shadowOpacity: 0.1,
-    elevation: 1,
+  button: {
+    width: width - theme.SIZES.BASE * 4,
+    height: theme.SIZES.BASE * 3,
+    shadowRadius: 0,
+    shadowOpacity: 0,
   },
-  socialTextButtons: {
-    color: argonTheme.COLORS.PRIMARY,
-    fontWeight: "800",
-    fontSize: 14,
+  pro: {
+    backgroundColor: argonTheme.COLORS.INFO,
+    paddingHorizontal: 8,
+    marginLeft: 3,
+    borderRadius: 4,
+    height: 22,
+    marginTop: 15
   },
-  inputIcons: {
-    marginRight: 12,
-  },
-  passwordCheck: {
-    paddingLeft: 15,
-    paddingTop: 13,
-    paddingBottom: 30,
-  },
-  createButton: {
-    width: width * 0.5,
-    marginTop: 25,
+  gradient: {
+    zIndex: 1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 66,
   },
 });
-
-export default EndQuiz;

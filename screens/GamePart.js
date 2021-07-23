@@ -38,8 +38,18 @@ const categories = [
         price: "125 points"
     }
 ];
+const createTwoButtonAlert = () =>
+  Alert.alert("Alert Title", "My Alert Msg", [
+    {
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel",
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") },
+  ]);
 
 class GamePart extends React.Component {
+    
     renderProduct = (item, index) => {
         const { navigation } = this.props;
 
@@ -87,10 +97,10 @@ class GamePart extends React.Component {
                 <Text bold size={50} style={styles.title}>
                     Quizzes & Games
         </Text>
-                <Block flex>
+                <Block flex >
                     <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
 
-                        <Block flex card shadow style={styles.category}>
+                        <Block flex card shadow style={styles.category }>
                             <ImageBackground
                                 source={{ uri: Images.Products["View article"] }}
                                 style={[
@@ -102,7 +112,7 @@ class GamePart extends React.Component {
                                     height: 252
                                 }}
                             >
-                                <Block style={styles.categoryTitle}>
+                                <Block style={styles.categoryTitle} >
                                     <Text size={25} bold color={theme.COLORS.WHITE}>
                                         Random Quiz
                   </Text>

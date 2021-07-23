@@ -218,7 +218,7 @@ function GameStack(props) {
 
 function GamePartStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="GamePart"
         component={GamePart}
@@ -234,7 +234,7 @@ function GamePartStack(props) {
 
 function WrongQuizStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
       <Stack.Screen
         name="WrongQuiz"
         component={WrongQuiz}

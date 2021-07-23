@@ -16,7 +16,7 @@ import { argonTheme } from "../constants";
 const createTwoButtonAlert = () =>
   Alert.alert(
     "Contact Us",
-    "Are you want that you want to call Healthcare hotline?",
+    "Are you want that you want to call the Healthcare hotline?",
     [
       {
         text: "Cancel",
@@ -27,7 +27,7 @@ const createTwoButtonAlert = () =>
         text: "Yes",
         onPress: () => {
           console.log("Yes Pressed");
-          Linking.openURL('tel:995');
+          Linking.openURL("tel:995");
         },
       },
     ]
@@ -107,7 +107,6 @@ class Card extends React.Component {
 
 Card.propTypes = {
   item: PropTypes.object,
-  page: PropTypes.string,
   horizontal: PropTypes.bool,
   full: PropTypes.bool,
   ctaColor: PropTypes.string,

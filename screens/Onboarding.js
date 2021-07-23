@@ -26,25 +26,27 @@ class Onboarding extends React.Component {
             style={{ height, width, zIndex: 1 }}
           />
         </Block>
-        <Block center>
-          <Image source={Images.LogoOnboarding} style={styles.logo} />
-        </Block>
+        {/* <Block center>
+        <Text  style={styles.logo} color="white" size={60}>
+                    Justatic
+                  </Text>
+        </Block> */}
         <Block flex space="between" style={styles.padded}>
             <Block flex space="around" style={{ zIndex: 2 }}>
               <Block style={styles.title}>
                 <Block>
-                  <Text color="white" size={60}>
-                    Design
+                  <Text color="white" size={100}>
+                    Justatic
                   </Text>
                 </Block>
                 <Block>
                   <Text color="white" size={60}>
-                    System
+                    Covid Application
                   </Text>
                 </Block>
                 <Block style={styles.subTitle}>
                   <Text color="white" size={16}>
-                    Fully coded React Native components.
+                  Lifehack
                   </Text>
                 </Block>
               </Block>

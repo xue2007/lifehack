@@ -17,6 +17,8 @@ import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
 import Game from "../screens/Game";
 import GamePart from "../screens/GamePart";
+import Quiz from "../screens/Quiz";
+
 
 
 // drawer
@@ -225,6 +227,20 @@ function GamePartStack(props) {
     </Stack.Navigator>
   );
 }
+function QuizStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="Quiz"
+        component={Quiz}
+        option={{
+          headerTransparent: true
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
 
 function AppStack(props) {
   return (
@@ -264,6 +280,7 @@ function AppStack(props) {
       <Drawer.Screen name="Articles" component={ArticlesStack} />
       <Drawer.Screen name="Game" component={GameStack} />
       <Drawer.Screen name="GamePart" component={GamePartStack} />
+      <Drawer.Screen name="Quiz" component={QuizStack} />
 
     </Drawer.Navigator>
   );

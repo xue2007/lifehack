@@ -95,25 +95,7 @@ class Articles extends React.Component {
               <Card item={articles[2]} />
             </Block>
             <Card item={articles[4]} full />
-            <Block flex card shadow style={styles.category}>
-              <ImageBackground
-                source={{ uri: Images.Products["View article"] }}
-                style={[
-                  styles.imageBlock,
-                  { width: width - theme.SIZES.BASE * 2, height: 252 }
-                ]}
-                imageStyle={{
-                  width: width - theme.SIZES.BASE * 2,
-                  height: 252
-                }}
-              >
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>
-                    View article
-                  </Text>
-                </Block>
-              </ImageBackground>
-            </Block>
+            
           </Block>
           <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
             <ScrollView
@@ -187,7 +169,7 @@ class Articles extends React.Component {
           showsVerticalScrollIndicator={false}
         >
           {this.renderCards()}
-          {this.renderAlbum()}
+          {/* {this.renderAlbum()} */}
         </ScrollView>
       </Block>
     );

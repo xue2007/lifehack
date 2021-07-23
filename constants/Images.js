@@ -2,6 +2,8 @@
 const Onboarding = require("../assets/imgs/bg.png");
 const Logo = require("../assets/imgs/argon-logo.png");
 const LogoOnboarding = require("../assets/imgs/argon-logo-onboarding.png");
+const JustaticLogo = require("../assets/imgs/jicon.png");
+
 const ProfileBackground = require("../assets/imgs/profile-screen-bg.png");
 const RegisterBackground = require("../assets/imgs/register-bg.png");
 const Pro = require("../assets/imgs/getPro-bg.png");
@@ -26,6 +28,7 @@ const Products = {
 };
 
 export default {
+  JustaticLogo,
   Onboarding,
   Logo,
   LogoOnboarding,

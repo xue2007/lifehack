@@ -26,6 +26,9 @@ class Onboarding extends React.Component {
             style={{ height, width, zIndex: 1 }}
           />
         </Block>
+        <Block center>
+          <Image source={Images.JustaticLogo} style={styles.logo} />
+        </Block>
         {/* <Block center>
         <Text  style={styles.logo} color="white" size={60}>
                     Justatic

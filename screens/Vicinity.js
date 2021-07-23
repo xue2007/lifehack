@@ -22,10 +22,6 @@ class Vicinity extends React.Component {
     return (
       <Block flex center style={styles.home} backgroundColor="red">
         <Text bold size={50}>
-          Vicinity Sensor
-        </Text>
-
-        <Text bold size={50}>
           {randomNumber} Number of people
         </Text>
         <Text size={50} color="white" style={styles.text_style}>
@@ -38,9 +34,6 @@ class Vicinity extends React.Component {
     return (
       <Block flex center style={styles.home} backgroundColor="green">
         <Text bold size={50}>
-          Vicinity Sensor
-        </Text>
-        <Text bold size={50}>
           {randomNumber} Number of people
         </Text>
         <Text size={50} color="white" style={styles.text_style}>
@@ -52,9 +45,6 @@ class Vicinity extends React.Component {
   renderOrange = () => {
     return (
       <Block flex center style={styles.home} backgroundColor="orange">
-        <Text bold size={50}>
-          Vicinity Sensor
-        </Text>
         <Text bold size={50}>
           {randomNumber} Number of people
         </Text>

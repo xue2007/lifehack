@@ -1,6 +1,5 @@
 export default [
   {
-<<<<<<< HEAD
     title: 'Covid-19 Latest Updates',
     image: 'https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
     cta: 'View article', 

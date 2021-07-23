@@ -37,6 +37,7 @@
     "react-native-screens": "~3.4.0"
   },
   "devDependencies": {
+    "@bam.tech/react-native-make": "^3.0.3",
     "babel-preset-expo": "8.3.0"
   },
   "keywords": [

@@ -21,7 +21,6 @@ import Quiz from "../screens/Quiz";
 import WrongQuiz from "../screens/WrongQuiz";
 import EndQuiz from "../screens/EndQuiz";
 
-
 import VicinitySensor from "../screens/Vicinity";
 
 // drawer
@@ -231,7 +230,6 @@ function GamePartStack(props) {
   );
 }
 
-
 function WrongQuizStack(props) {
   return (
     <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
@@ -278,9 +276,9 @@ function QuizStack(props) {
 }
 function VicinityStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
-        name="Vicinity"
+        name="Vicinity Sensor"
         component={VicinitySensor}
         option={{
           headerTransparent: true,

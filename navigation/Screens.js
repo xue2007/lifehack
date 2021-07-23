@@ -18,6 +18,10 @@ import Articles from "../screens/Articles";
 import Game from "../screens/Game";
 import GamePart from "../screens/GamePart";
 import Quiz from "../screens/Quiz";
+import WrongQuiz from "../screens/WrongQuiz";
+import EndQuiz from "../screens/EndQuiz";
+
+
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -225,6 +229,38 @@ function GamePartStack(props) {
     </Stack.Navigator>
   );
 }
+
+
+function WrongQuizStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="WrongQuiz"
+        component={WrongQuiz}
+        option={{
+          headerTransparent: true,
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+
+function EndQuizStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="EndQuiz"
+        component={EndQuiz}
+        option={{
+          headerTransparent: true,
+        }}
+      />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+
 function QuizStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
@@ -280,6 +316,8 @@ function AppStack(props) {
       <Drawer.Screen name="Quiz" component={QuizStack} />
       <Drawer.Screen name="Account" component={Register} />
       <Drawer.Screen name="Register" component={Register} />
+      <Drawer.Screen name="WrongQuiz" component={WrongQuizStack} />
+      <Drawer.Screen name="EndQuiz" component={EndQuizStack} />
     </Drawer.Navigator>
   );
 }

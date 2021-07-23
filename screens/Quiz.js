@@ -10,13 +10,14 @@ import { Button, Select, Icon, Input, Header, Switch } from "../components/";
 const { width, height } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
+// const { navigation } = this.props;
+
 
 class Quiz extends React.Component {
     render() {
+        const { navigation } = this.props;
+
         return (
-
-
-
             <Block middle style={{
                 backgroundColor: "lightBlue",
                 flex: 1,
@@ -37,14 +38,14 @@ class Quiz extends React.Component {
                     <Block row style={{ marginTop: theme.SIZES.BASE }}>
                         <Button style={{ ...styles.socialButtons, marginRight: 30 }}>
                             <Block row>
-                                <Button color="info" style={styles.button}>
+                                <Button color="info" style={styles.button} onPress={() => navigation.navigate("EndQuiz")}>
                                     YES
             </Button>
                             </Block>
                         </Button>
                         <Button style={styles.socialButtons}>
                             <Block row>
-                                <Button color="info" style={styles.button}>
+                                <Button color="info" style={styles.button} onPress={() => navigation.navigate("WrongQuiz")}>
                                     NO
             </Button>
                             </Block>

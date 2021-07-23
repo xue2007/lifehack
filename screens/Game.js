@@ -6,7 +6,7 @@ const { height, width } = Dimensions.get('screen');
 import { Images, argonTheme } from '../constants/';
 import { HeaderHeight } from "../constants/utils";
 
-export default class Pro extends React.Component {
+export default class Game extends React.Component {
   render() {
     const { navigation } = this.props;
 

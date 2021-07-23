@@ -107,7 +107,6 @@ class Card extends React.Component {
 
 Card.propTypes = {
   item: PropTypes.object,
-  page: PropTypes.string,
   horizontal: PropTypes.bool,
   full: PropTypes.bool,
   ctaColor: PropTypes.string,

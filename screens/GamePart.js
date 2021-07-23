@@ -44,7 +44,7 @@ const categories = [
   },
 ];
 const createTwoButtonAlert = () =>
-  Alert.alert("Alert Title", "My Alert Msg", [
+  Alert.alert("Maintainence Alert", "Please view vaccination quiz instead", [
     {
       text: "Cancel",
       onPress: () => console.log("Cancel Pressed"),
@@ -203,31 +203,23 @@ class GamePart extends React.Component {
         style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}
       >
         <Text bold size={50} style={styles.title}>
-          High Scores
+          Top 3 Scorers
         </Text>
         <Block style={{ marginHorizontal: theme.SIZES.BASE * 2 }}>
-          <Block flex right>
-            <Text
-              size={30}
-              color={theme.COLORS.PRIMARY}
-              onPress={() => navigation.navigate("")}
-            >
-              View All
-            </Text>
-            <Text>. </Text>
+          <Block>
           </Block>
 
-          <Block center>
+          <Block>
             <Button color="info" style={styles.button}>
               Ah Huat
             </Button>
           </Block>
-          <Block center>
+          <Block >
             <Button color="info" style={styles.button}>
               Ramli
             </Button>
           </Block>
-          <Block center>
+          <Block >
             <Button color="info" style={styles.button}>
               Muthu
             </Button>
@@ -317,6 +309,10 @@ const styles = StyleSheet.create({
   productDescription: {
     paddingTop: theme.SIZES.BASE,
     // paddingBottom: theme.SIZES.BASE * 2,
+  },
+  button: {
+    marginBottom: theme.SIZES.BASE,
+    width: 330,
   },
 });
 

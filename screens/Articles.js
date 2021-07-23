@@ -1,11 +1,12 @@
 import React from "react";
+import axios from "axios";
 import {
   ScrollView,
   StyleSheet,
   Image,
   TouchableWithoutFeedback,
   ImageBackground,
-  Dimensions
+  Dimensions,
 } from "react-native";
 //galio
 import { Block, Text, theme } from "galio-framework";
@@ -24,7 +25,7 @@ const categories = [
       "Rock music is a genre of popular music. It developed during and after the 1960s in the United Kingdom.",
     image:
       "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?fit=crop&w=840&q=80",
-    price: "$125"
+    price: "$125",
   },
   {
     title: "Events",
@@ -32,11 +33,26 @@ const categories = [
       "Rock music is a genre of popular music. It developed during and after the 1960s in the United Kingdom.",
     image:
       "https://images.unsplash.com/photo-1543747579-795b9c2c3ada?fit=crop&w=840&q=80",
-    price: "$35"
-  }
+    price: "$35",
+  },
 ];
 
 class Articles extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { articleData: [] };
+  }
+  componentDidMount() {
+    axios
+      .get("https://db52ef3b4e70.ngrok.io/lifehack/v1/article/getAll")
+      .then((res) => {
+        this.setState({ articleData: res.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   renderProduct = (item, index) => {
     const { navigation } = this.props;
 
@@ -79,6 +95,7 @@ class Articles extends React.Component {
   };
 
   renderCards = () => {
+    console.log("State: ", this.state.articleData);
     return (
       <Block flex style={styles.group}>
         <Text bold size={16} style={styles.title}>
@@ -95,7 +112,6 @@ class Articles extends React.Component {
               <Card item={articles[2]} />
             </Block>
             <Card item={articles[4]} full />
-            
           </Block>
           <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
             <ScrollView
@@ -107,7 +123,7 @@ class Articles extends React.Component {
               showsHorizontalScrollIndicator={false}
               snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
               contentContainerStyle={{
-                paddingHorizontal: theme.SIZES.BASE / 2
+                paddingHorizontal: theme.SIZES.BASE / 2,
               }}
             >
               {categories &&
@@ -165,9 +181,7 @@ class Articles extends React.Component {
   render() {
     return (
       <Block flex center>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView showsVerticalScrollIndicator={false}>
           {this.renderCards()}
           {/* {this.renderAlbum()} */}
         </ScrollView>
@@ -181,33 +195,33 @@ const styles = StyleSheet.create({
     paddingBottom: theme.SIZES.BASE,
     paddingHorizontal: theme.SIZES.BASE * 2,
     marginTop: 22,
-    color: argonTheme.COLORS.HEADER
+    color: argonTheme.COLORS.HEADER,
   },
   group: {
-    paddingTop: theme.SIZES.BASE
+    paddingTop: theme.SIZES.BASE,
   },
   albumThumb: {
     borderRadius: 4,
     marginVertical: 4,
     alignSelf: "center",
     width: thumbMeasure,
-    height: thumbMeasure
+    height: thumbMeasure,
   },
   category: {
     backgroundColor: theme.COLORS.WHITE,
     marginVertical: theme.SIZES.BASE / 2,
-    borderWidth: 0
+    borderWidth: 0,
   },
   categoryTitle: {
     height: "100%",
     paddingHorizontal: theme.SIZES.BASE,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   imageBlock: {
     overflow: "hidden",
-    borderRadius: 4
+    borderRadius: 4,
   },
   productItem: {
     width: cardWidth - theme.SIZES.BASE * 2,
@@ -215,21 +229,21 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOffset: { width: 0, height: 7 },
     shadowRadius: 10,
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
   },
   productImage: {
     width: cardWidth - theme.SIZES.BASE,
     height: cardWidth - theme.SIZES.BASE,
-    borderRadius: 3
+    borderRadius: 3,
   },
   productPrice: {
     paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE / 2
+    paddingBottom: theme.SIZES.BASE / 2,
   },
   productDescription: {
-    paddingTop: theme.SIZES.BASE
+    paddingTop: theme.SIZES.BASE,
     // paddingBottom: theme.SIZES.BASE * 2,
-  }
+  },
 });
 
 export default Articles;

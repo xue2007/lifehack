@@ -3,8 +3,10 @@ const express = require("express");
 const routes = require("./routes");
 const { errorFormatter } = require("./utils/errorFormater");
 const { NOT_FOUND } = require("http-status");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/lifehack/v1", routes);
 

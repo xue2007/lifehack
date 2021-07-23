@@ -107,11 +107,14 @@ class Card extends React.Component {
       }
     } else {
       // Articles
+      console.log(item.title);
       return (
         <Block row={horizontal} card flex style={cardContainer}>
           <TouchableWithoutFeedback
             onPress={() => {
-              navigation.navigate("ArticleDetails", {itemParam: item.title});
+              navigation.navigate("ArticleDetails", {
+                itemParam: item.title,
+              });
             }}
           >
             <Block flex style={imgContainer}>
@@ -120,7 +123,9 @@ class Card extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             onPress={() => {
-              navigation.navigate("ArticleDetails", {itemParam: item.title});
+              navigation.navigate("ArticleDetails", {
+                itemParam: item.title,
+              });
             }}
           >
             <Block flex space="between" style={styles.cardDescription}>

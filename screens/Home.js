@@ -15,16 +15,15 @@ class Home extends React.Component {
         <Block flex>
           
           <Block flex row>
-            <Card item={mainMenuTabs[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Card item={mainMenuTabs[2]} />
+            <Card item={mainMenuTabs[0]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Card item={mainMenuTabs[1]} />
           </Block>
           <Block flex row>
-            <Card item={mainMenuTabs[3]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Card item={mainMenuTabs[2]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Card item={mainMenuTabs[3]} />
+          </Block>
+          <Block flex row>
             <Card item={mainMenuTabs[4]} />
-          </Block>
-          <Block flex row>
-            <Card item={mainMenuTabs[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Card item={mainMenuTabs[2]} />
           </Block>
           
         </Block>

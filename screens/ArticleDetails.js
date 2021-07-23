@@ -52,6 +52,7 @@ class ArticleDetails extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+    this.setState({ itemParam: this.props });
   }
 
   renderProduct = (item, index) => {
@@ -97,6 +98,7 @@ class ArticleDetails extends React.Component {
 
   renderCards = () => {
     console.log("State: ", this.state.articleData);
+    console.log("item details :" + this.props.route.itemParam);
     return (
       <Block flex style={styles.group}>
         <Text bold size={30} style={styles.title}>

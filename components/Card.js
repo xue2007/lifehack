@@ -144,7 +144,7 @@ class Card extends React.Component {
             </TouchableWithoutFeedback>
           </Block>
         );
-      } 
+      }
     }
   }
 }

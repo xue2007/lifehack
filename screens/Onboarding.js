@@ -27,7 +27,7 @@ class Onboarding extends React.Component {
           />
         </Block>
         <Block center>
-          <Image source={Images.JustaticLogo} style={styles.logo} />
+          <Image source={Images.JustaticLogo} style={styles.jlogo} />
         </Block>
         {/* <Block center>
         <Text  style={styles.logo} color="white" size={60}>
@@ -89,6 +89,13 @@ const styles = StyleSheet.create({
   logo: {
     width: 200,
     height: 60,
+    zIndex: 2,
+    position: 'relative',
+    marginTop: '-50%'
+  },
+  jlogo: {
+    width: 200,
+    height: 200,
     zIndex: 2,
     position: 'relative',
     marginTop: '-50%'

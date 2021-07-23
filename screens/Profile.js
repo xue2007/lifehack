@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Linking,
   StyleSheet,
   Dimensions,
   ScrollView,
@@ -48,6 +49,13 @@ class Profile extends React.Component {
                     <Button
                       small
                       style={{ backgroundColor: argonTheme.COLORS.ERROR }}
+                      onPress={() =>
+                        Linking.openURL(
+                          "https://www.singpass.gov.sg/spauth/login/loginpage?URL=%2Fsingpass%2Flogin%2Floginpage&TAM_OP=login"
+                        ).catch((err) =>
+                          console.error("An error occurred", err)
+                        )
+                      }
                     >
                       SingPass
                     </Button>

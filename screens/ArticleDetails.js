@@ -12,9 +12,8 @@ import {
 //galio
 import { Block, Text, theme } from "galio-framework";
 //argon
-import { articles, Images, argonTheme } from "../constants/";
+import { articleDetails, Images, argonTheme } from "../constants/";
 import { Card } from "../components/";
-import { useNavigation, useRoute } from "@react-navigation/native";
 
 const { width } = Dimensions.get("screen");
 
@@ -60,26 +59,11 @@ class ArticleDetails extends React.Component {
     return (
       <Block flex style={styles.group}>
         <Text bold size={16} style={styles.title}>
-          Article Title
+          {articleDetails[0].title}
         </Text>
         <Block flex>
-          <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
-            <ScrollView
-              horizontal={true}
-              pagingEnabled={true}
-              decelerationRate={0}
-              scrollEventThrottle={16}
-              snapToAlignment="center"
-              showsHorizontalScrollIndicator={false}
-              snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
-              contentContainerStyle={{
-                paddingHorizontal: theme.SIZES.BASE / 2,
-              }}
-            >
-              <Text bold size={16} style={styles.title}>
-                Article Text
-              </Text>
-            </ScrollView>
+          <Block flex style={{ paddingHorizontal: theme.SIZES.BASE }}>
+            <Card item={articleDetails[0]} full />
           </Block>
         </Block>
       </Block>

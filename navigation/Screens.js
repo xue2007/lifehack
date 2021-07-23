@@ -331,8 +331,8 @@ function AppStack(props) {
       <Drawer.Screen name="Quiz" component={QuizStack} />
       <Drawer.Screen name="Account" component={Register} />
       <Drawer.Screen name="Register" component={Register} />
-      <Drawer.Screen name="WrongQuiz" component={WrongQuizStack} />
       <Drawer.Screen name="EndQuiz" component={EndQuizStack} />
+      <Drawer.Screen name="WrongQuiz" component={WrongQuizStack} />
       <Drawer.Screen name="VicinitySensor" component={VicinityStack} />
     </Drawer.Navigator>
   );

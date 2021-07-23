@@ -6,12 +6,13 @@ const userSchema = new Mongoose.Schema(
       type: String,
       required: true,
     },
-    IC: {
+    ic: {
       type: String,
       unique: true,
     },
     points: {
       type: String,
+      default: "0",
     },
   },
   { timestamps: true }

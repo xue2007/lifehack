@@ -12,65 +12,26 @@ import {
 //galio
 import { Block, Text, Button as GaButton, theme } from "galio-framework";
 //argon
-import { articles, tabs, Images, argonTheme } from "../constants/";
 
 const { width } = Dimensions.get("screen");
 
-const thumbMeasure = (width - 48 - 32) / 3;
-const cardWidth = width - theme.SIZES.BASE * 2;
 var randomNumber = Math.floor(Math.random() * 30) + 1;
 
 class Vicinity extends React.Component {
-  renderProduct = (item, index) => {
-    const { navigation } = this.props;
-
-    return (
-      <TouchableWithoutFeedback
-        style={{ zIndex: 3 }}
-        key={`product-${item.title}`}
-        onPress={() => navigation.navigate("Quiz", { product: item })}
-      >
-        <Block center style={styles.productItem}>
-          <Image
-            resizeMode="cover"
-            style={styles.productImage}
-            source={{ uri: item.image }}
-          />
-          <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Text
-              center
-              size={16}
-              color={theme.COLORS.MUTED}
-              style={styles.productPrice}
-            >
-              {item.price}
-            </Text>
-            <Text center size={34}>
-              {item.title}
-            </Text>
-            <Text
-              center
-              size={16}
-              color={theme.COLORS.MUTED}
-              style={styles.productDescription}
-            >
-              {item.description}
-            </Text>
-          </Block>
-        </Block>
-      </TouchableWithoutFeedback>
-    );
-  };
   renderRed = () => {
     return (
-      <View style={{ flex: 1, backgroundColor: "##FF0000" }}>
+      <Block flex center style={styles.home} backgroundColor="red">
         <Text bold size={50}>
           Vicinity Sensor
         </Text>
-        <Text size={20} color="white">
-          High Risks
+
+        <Text bold size={50}>
+          {randomNumber} Number of people
         </Text>
-      </View>
+        <Text size={50} color="white" style={styles.text_style}>
+          High Risk
+        </Text>
+      </Block>
     );
   };
   renderGreen = () => {
@@ -82,7 +43,7 @@ class Vicinity extends React.Component {
         <Text bold size={50}>
           {randomNumber} Number of people
         </Text>
-        <Text size={20} color="white">
+        <Text size={50} color="white" style={styles.text_style}>
           Safe
         </Text>
       </Block>
@@ -97,7 +58,7 @@ class Vicinity extends React.Component {
         <Text bold size={50}>
           {randomNumber} Number of people
         </Text>
-        <Text size={20} color="white">
+        <Text size={50} color="white" style={styles.text_style}>
           At Risk
         </Text>
       </Block>
@@ -107,7 +68,7 @@ class Vicinity extends React.Component {
   render() {
     if (randomNumber < 5) {
       return this.renderGreen();
-    } else if (randomNumber >= 5) {
+    } else if (randomNumber >= 5 && randomNumber < 20) {
       return this.renderOrange();
     } else {
       return this.renderRed();
@@ -123,6 +84,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-around",
     alignItems: "center",
+  },
+  text_style: {
+    color: "white",
+    lineHeight: 300,
   },
 });
 

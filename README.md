@@ -1,7 +1,9 @@
 Justatic (107) Healthbuddy React-Native Mobile Application
 
 
-1.git clone from git repo with this command git clone ...
+1.git clone from git repo with this command: git clone https://github.com/xue2007/lifehack.git
+
+2. cd to your clone directory
 
 2. npm i
 3. npm start

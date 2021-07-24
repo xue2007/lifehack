@@ -14,5 +14,3 @@ Prototype Application: https://exp.host/@ancientsniper/justatic-107
 ** IOS users may have problem accessing the prototype application due a common EXNetwrok error 403. To overcome this problem, IOS users will need to access the application manually from the code. Simply scan the QR code in the web browser or press i (for the IOS simulator) after step 4.  
 ** Android users will have no issues using the prototype application using the link in line 13.
 
-Currently protype link supports android.
-

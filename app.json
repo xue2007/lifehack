@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Justatic(107)",
-    "slug": "justatic(107)",
+    "name": "Justatic 107",
+    "slug": "justatic-107",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -24,6 +24,10 @@
     "ios": {
       "supportsTablet": true
     },
+<<<<<<< HEAD
     "description": "Justatic team for lifehack"
+=======
+    "description": "HealthBuddy Mobile Application."
+>>>>>>> 6a06f78a270c036cab94f6dcf00689aaf489dd6d
   }
 }
